@@ -45,16 +45,14 @@ function Ant() {
   };
 
   return (
-    <Layout className="min-h-screen bg-gray-100 font-sans pt-16">
+    <Layout className="min-h-screen bg-white font-sans pt-16">
       <Header item={{ item: "ant" }} />
       <Content className="flex flex-col items-center p-4 sm:p-8">
         <Space direction="vertical" size="small" align="center">
-          <Title level={1} className="!text-3xl !font-bold !mb-0">
+          <Title level={2} className="text-3xl font-bold mb-0">
             made using ant design
           </Title>
-          <Paragraph className="!mt-0">
-            using redux store to manage state
-          </Paragraph>
+          <Paragraph>using redux store to manage state</Paragraph>
         </Space>
         <Content className="w-full max-w-xl mt-4">
           <Form
@@ -85,9 +83,9 @@ function Ant() {
 
             <Form.Item className="mb-0">
               <Button
-                // type="primary"
+                type="primary"
                 onClick={handleClearAll}
-                className=" bg-stone-500 hover:bg-black text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                className="shrink-0 bg-stone-500 hover:!bg-black text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               >
                 clear all
               </Button>
@@ -130,9 +128,9 @@ function Ant() {
                 )}
               />
             ) : (
-              <Space className="text-center text-gray-500">
+              <Content align="center" className="text-center text-gray-500">
                 No items in the list.
-              </Space>
+              </Content>
             )}
           </Content>
         </Content>
