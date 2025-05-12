@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Header from "./Header";
 import { useDispatch, useSelector } from "react-redux";
 import { add, clear, remove } from "./redux/slice";
@@ -12,6 +12,7 @@ import {
   Typography,
   Space,
   Tag,
+  Card,
 } from "antd";
 
 import { DeleteOutlined } from "@ant-design/icons";
@@ -36,6 +37,7 @@ function Ant() {
   const handleClearAll = () => {
     dispatch(clear());
     setInputValue("");
+    form.resetFields();
   };
 
   const handleRemoveItem = (itemKey) => {
@@ -44,17 +46,17 @@ function Ant() {
 
   return (
     <Layout className="min-h-screen bg-gray-100 font-sans pt-16">
+      <Header item={{ item: "ant" }} />
       <Content className="flex flex-col items-center p-4 sm:p-8">
-        <Header item={{ item: "ant" }} />
-        <div className="w-full max-w-xl mt-4 space-y-1 text-center">
+        <Space direction="vertical" size="small" align="center">
           <Title level={1} className="!text-3xl !font-bold !mb-0">
             made using ant design
           </Title>
           <Paragraph className="!mt-0">
             using redux store to manage state
           </Paragraph>
-        </div>
-        <div className="w-full max-w-xl mt-4">
+        </Space>
+        <Content className="w-full max-w-xl mt-4">
           <Form
             form={form}
             onFinish={handleAddItem}
@@ -91,17 +93,19 @@ function Ant() {
               </Button>
             </Form.Item>
           </Form>
-          <div className="p-4 space-y-4">
+          <Content className="p-4 w-full space-y-4">
             {Object.keys(list).length > 0 ? (
               <List
+                justify="space-between"
+                className="w-full"
                 bordered={false}
                 dataSource={Object.entries(list)}
-                renderItem={([itemKey, count], index) => (
+                renderItem={([itemKey, count]) => (
                   <List.Item
                     key={itemKey}
-                    className="flex justify-between items-center h-full p-0"
+                    className="flex justify-between w-full items-center h-full p-0"
                   >
-                    <div className="flex items-center w-full bg-gray-100 px-2 mr-4 rounded">
+                    <Content className="flex items-center w-full bg-gray-100 px-2 mr-4 rounded">
                       <Text className="pl-2 py-2 my-0 flex items-center flex-grow">
                         {itemKey}
                       </Text>{" "}
@@ -113,7 +117,7 @@ function Ant() {
                           count {count}
                         </Tag>
                       )}
-                    </div>
+                    </Content>
                     <Button
                       type="danger"
                       icon={<DeleteOutlined />}
@@ -126,12 +130,12 @@ function Ant() {
                 )}
               />
             ) : (
-              <div className="text-center text-gray-500">
+              <Space className="text-center text-gray-500">
                 No items in the list.
-              </div>
+              </Space>
             )}
-          </div>
-        </div>
+          </Content>
+        </Content>
       </Content>
     </Layout>
   );
