@@ -52,45 +52,43 @@ function CustomAntDesign() {
   const handleRemoveItem = (itemKey) => {
     dispatch(remove(itemKey));
   };
+  const theme = {
+    components: {
+      Button: {
+        colorPrimary: "#00b96b",
+        colorPrimaryHover: "#00a854",
+        colorPrimaryActive: "#019249",
 
+        defaultColor: darkMode === false ? "#ffffff" : "#000000",
+        defaultBg: darkMode !== false ? "#c34e4e" : "#000000",
+        defaultBorderColor: darkMode !== false ? "#c34e4e" : "#000000",
+        defaultHoverColor: "#FFFFFF",
+        defaultHoverBg: "#b40000  ",
+        defaultHoverBorderColor: "#000000",
+
+        defaultActiveColor: "#000000",
+
+        controlHeight: 40,
+      },
+      Input: {
+        colorPrimary: darkMode !== false ? "#ffffff" : "#000000",
+        colorPrimaryHover: darkMode !== false ? "#ffffff" : "#000000",
+        colorBorder: "#000000",
+      },
+    },
+    token: {
+      colorBgLayout: darkMode === false ? "#ffffff" : "#000000",
+      colorText: darkMode !== false ? "#ffffff" : "#000000",
+
+      defaultColor: "#000000",
+      colorBgContainer: "#ffffff",
+      colorBorder: "#ffffff",
+
+      controlHeight: 32,
+    },
+  };
   return (
-    <ConfigProvider
-      theme={{
-        components: {
-          Button: {
-            colorPrimary: "#00b96b",
-            colorPrimaryHover: "#00a854",
-            colorPrimaryActive: "#019249",
-
-            defaultColor: darkMode === false ? "#ffffff" : "#000000",
-            defaultBg: darkMode !== false ? "#c34e4e" : "#000000",
-            defaultBorderColor: darkMode !== false ? "#c34e4e" : "#000000",
-            defaultHoverColor: "#FFFFFF",
-            defaultHoverBg: "#b40000  ",
-            defaultHoverBorderColor: "#000000",
-
-            defaultActiveColor: "#000000",
-
-            controlHeight: 40,
-          },
-          Input: {
-            colorPrimary: darkMode !== false ? "#ffffff" : "#000000",
-            colorPrimaryHover: darkMode !== false ? "#ffffff" : "#000000",
-            colorBorder: "#000000",
-          },
-        },
-        token: {
-          colorBgLayout: darkMode === false ? "#ffffff" : "#000000",
-          colorText: darkMode !== false ? "#ffffff" : "#000000",
-
-          defaultColor: "#000000",
-          colorBgContainer: "#ffffff",
-          colorBorder: "#ffffff",
-
-          controlHeight: 32,
-        },
-      }}
-    >
+    <ConfigProvider theme={theme}>
       <Layout className="min-h-screen   pt-16">
         <Header item={{ item: "custom" }} />
         <Content size="full" className="flex flex-col items-center p-4 sm:p-8">
