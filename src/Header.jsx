@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 function Header({ item }) {
   const [darkMode, setDarkMode] = useState(false);
-  const [pages, setPages] = useState(["tailwind", "ant", "query"]);
+  const [pages, setPages] = useState(["tailwind", "ant", "saga", "query"]);
 
   useLayoutEffect(() => {
     const darkMode = localStorage.getItem("darkMode");
@@ -11,7 +11,7 @@ function Header({ item }) {
       setDarkMode(true);
     }
     if (item.item === "ant" || item.item === "custom") {
-      setPages(["tailwind", "ant", "custom", "query"]);
+      setPages(["tailwind", "ant", "custom", "saga", "query"]);
     }
   }, []);
 
@@ -39,17 +39,15 @@ function Header({ item }) {
         {pages.map((page, i) => {
           return (
             <Link
+              key={i}
               to={(function () {
                 if (page === "custom") {
                   return "/ant/custom";
                 } else if (page === "tailwind") {
                   return "/";
-                } else if (page === "ant") {
-                  return "/ant";
-                } else if (page === "query") {
-                  return "/query";
+                } else {
+                  return `/${page}`;
                 }
-                return "/";
               })()}
               className={variableClass(page)}
             >
