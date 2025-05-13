@@ -1,9 +1,11 @@
 import react, { useState } from "react";
 import Header from "./Header";
 import { useDispatch, useSelector } from "react-redux";
-import { add, clear, remove } from "./redux/slice";
+// import { add, clear, remove } from "./redux/slice";
 import "tailwindcss/tailwind.css";
 import "./index.css";
+import { Add, Clear, Remove } from "./redux/actions";
+import { ADD, REMOVE } from "./redux/type";
 
 function App() {
   const [data, setData] = useState("");
@@ -27,7 +29,7 @@ function App() {
             onSubmit={(e) => {
               e.preventDefault();
               if (data.length > 0) {
-                dispatch(add(data));
+                dispatch(Add({ type: ADD, payload: data }));
                 setData("");
               }
             }}
@@ -48,7 +50,7 @@ function App() {
             </button>
             <button
               onClick={() => {
-                dispatch(clear());
+                dispatch(Clear({ type: ADD, payload: "" }));
                 setData("");
               }}
               type="button"
@@ -77,7 +79,7 @@ function App() {
                   </div>
                   <button
                     onClick={() => {
-                      dispatch(remove(key));
+                      dispatch(Remove({ type: REMOVE, payload: { key } }));
                       setData("");
                     }}
                     type="button"

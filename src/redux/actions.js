@@ -1,8 +1,18 @@
-// export const GET_LIST_FETCH = "GET_LIST_FETCH";
-// export const GET_LIST_SUCCESS = "GET_LIST_SUCCESS";
-// export const GET_LIST_FAILURE = "GET_LIST_FAILURE";
-// export function getListFetch() {
-//   return {
-//     type: GET_LIST_FETCH,
-//   };
-// }
+import {
+  ADD,
+  CLEAR,
+  GET_DATA_FAILURE,
+  GET_DATA_FETCH,
+  GET_DATA_SUCCESS,
+  REMOVE,
+} from "./type";
+
+export const getDataFetch = () => ({ type: GET_DATA_FETCH });
+export const getDataSuccess = (payload) => ({
+  type: GET_DATA_SUCCESS,
+  payload,
+});
+export const getDatFailure = (payload) => ({ type: GET_DATA_FAILURE, payload });
+export const Add = (payload) => ({ type: ADD, payload });
+export const Remove = (payload) => ({ type: REMOVE, payload });
+export const Clear = () => ({ type: CLEAR });

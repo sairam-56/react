@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-import { getDataFetch } from "./redux/slice";
+// import { getDataFetch } from "./redux/slice";
 import { useEffect } from "react";
 import Header from "./Header";
+import { getDataFetch } from "./redux/actions";
 
 function ReduxSaga() {
   const dispatch = useDispatch();

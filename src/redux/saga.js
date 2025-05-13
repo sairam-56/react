@@ -1,6 +1,6 @@
 import { call, put, takeEvery } from "redux-saga/effects";
-// import { getListFetch } from "./actions";
-import { getDataFailure, getDataFetch, getDataSuccess } from "./slice";
+import * as actions from "./actions";
+import { GET_DATA_FETCH } from "./type";
 
 async function dataFetch() {
   const response = await fetch("https://www.reddit.com/r/reactjs.json");
@@ -10,12 +10,14 @@ async function dataFetch() {
 function* getDataWorker() {
   try {
     const data = yield call(dataFetch);
-    yield put(getDataSuccess(data));
+
+    yield put(actions.getDataSuccess(data));
+
     console.log("data", data);
   } catch (error) {
-    yield put(getDataFailure(error.message));
+    yield put(actions.getDatFailure(error.message));
   }
 }
 export function* watchDataFetch() {
-  yield takeEvery(getDataFetch.type, getDataWorker);
+  yield takeEvery(GET_DATA_FETCH, getDataWorker);
 }

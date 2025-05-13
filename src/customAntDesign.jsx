@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Header from "./Header";
 import { useDispatch, useSelector } from "react-redux";
-import { add, clear, remove } from "./redux/slice";
 
 import {
   Layout,
@@ -19,6 +18,7 @@ import {
 } from "antd";
 
 import { DeleteOutlined } from "@ant-design/icons";
+import { Add, Clear, Remove } from "./redux/actions";
 
 const { Content } = Layout;
 const { Title, Paragraph, Text } = Typography;
@@ -37,20 +37,20 @@ function CustomAntDesign() {
 
   const handleAddItem = () => {
     if (inputValue.trim().length > 0) {
-      dispatch(add(inputValue.trim()));
+      dispatch(Add(inputValue.trim()));
       setInputValue("");
       form.resetFields();
     }
   };
 
   const handleClearAll = () => {
-    dispatch(clear());
+    dispatch(Clear());
     setInputValue("");
     form.resetFields();
   };
 
   const handleRemoveItem = (itemKey) => {
-    dispatch(remove(itemKey));
+    dispatch(Remove(itemKey));
   };
   const theme = {
     components: {
