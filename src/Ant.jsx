@@ -1,9 +1,7 @@
 import { useState } from "react";
 import Header from "./Header";
 import { useDispatch, useSelector } from "react-redux";
-// import { add, clear, remove } from "./redux/slice";
 import { Add, Clear, Remove } from "./redux/actions";
-import { ADD, REMOVE } from "./redux/type";
 import {
   Layout,
   Input,
@@ -37,7 +35,6 @@ function Ant() {
   };
 
   const handleClearAll = () => {
-    // dispatch(clear());
     dispatch(Clear());
 
     setInputValue("");

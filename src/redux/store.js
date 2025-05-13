@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import counterReducer from "./slice";
+import counterReducer from "./reducer";
 
 import createSagaMiddleware from "redux-saga";
 import { watchDataFetch } from "./saga";

@@ -1,7 +1,6 @@
 import react, { useState } from "react";
 import Header from "./Header";
 import { useDispatch, useSelector } from "react-redux";
-// import { add, clear, remove } from "./redux/slice";
 import "tailwindcss/tailwind.css";
 import "./index.css";
 import { Add, Clear, Remove } from "./redux/actions";
@@ -23,7 +22,7 @@ function App() {
           using redux store to manage state
         </p>
       </div>
-      <div className="  ">
+      <div>
         <div>
           <form
             onSubmit={(e) => {
