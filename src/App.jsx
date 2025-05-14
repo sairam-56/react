@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import "tailwindcss/tailwind.css";
 import "./index.css";
 import { Add, Clear, Remove } from "./redux/actions";
-import { ADD, REMOVE } from "./redux/type";
 
 function App() {
   const [data, setData] = useState("");
@@ -28,7 +27,7 @@ function App() {
             onSubmit={(e) => {
               e.preventDefault();
               if (data.length > 0) {
-                dispatch(Add({ type: ADD, payload: data }));
+                dispatch(Add(data));
                 setData("");
               }
             }}
@@ -36,6 +35,7 @@ function App() {
           >
             <input
               autoFocus
+              type="text"
               placeholder="type something"
               value={data}
               onChange={(e) => setData(e.target.value)}

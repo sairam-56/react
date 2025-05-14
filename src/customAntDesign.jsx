@@ -120,6 +120,7 @@ function CustomAntDesign() {
             >
               <Form.Item name="itemInput" className="mb-0 flex-grow">
                 <Input
+                  type="text"
                   autoFocus
                   placeholder="type something"
                   value={inputValue}
