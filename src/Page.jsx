@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router";
 
 import App from "./App";
 import Ant from "./Ant";
-import Query from "./Query.tsx";
+import Query from "./Query.jsx";
 import CustomAntDesign from "./customAntDesign.jsx";
 import ReduxSaga from "./ReduxSaga.jsx";
 import NotFound from "./NotFound.jsx";

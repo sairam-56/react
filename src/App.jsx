@@ -49,7 +49,7 @@ function App() {
             </button>
             <button
               onClick={() => {
-                dispatch(Clear({ type: ADD, payload: "" }));
+                dispatch(Clear());
                 setData("");
               }}
               type="button"
@@ -78,7 +78,7 @@ function App() {
                   </div>
                   <button
                     onClick={() => {
-                      dispatch(Remove({ type: REMOVE, payload: { key } }));
+                      dispatch(Remove(key));
                       setData("");
                     }}
                     type="button"
