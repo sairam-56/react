@@ -33,7 +33,7 @@ function QueryFunction() {
   const [inputValue, setInputValue] = React.useState("");
   const [cashedList, setCashedList] = React.useState([]);
 
-  const { data, error, isPending, isSuccess } = useQuery({
+  const { data, error, isPending, isSuccess, isFetching } = useQuery({
     queryKey: ["fetch", param],
     queryFn: () => getData(param),
   });
@@ -60,7 +60,7 @@ function QueryFunction() {
           className="bg-black text-white border rounded px-5 py-3"
           onClick={() => setParam("reactjs")}
         >
-          reload
+          Go Back
         </button>
       </div>
     );
@@ -99,23 +99,28 @@ function QueryFunction() {
             </form>
             {cashedList.length > 1 ? (
               <div>
-                <div className="mx-2 flex flex-row space-x-4">
+                <div className="mx-2 flex flex-row space-x-1">
                   <h2>chashed data</h2>
                   <h2 className="text-stone-400">
-                    ( click the items below to get cashed data)
+                    --- click the items below to get cashed data
                   </h2>
                 </div>
-                <div className="space-x-3">
-                  {" "}
-                  {cashedList.map((item, i) => (
-                    <button
-                      key={i}
-                      className="  px-2 py-2 font-bold "
-                      onClick={() => setParam(item)}
-                    >
-                      {item}
-                    </button>
-                  ))}
+                <div className="flex flex-row space-x-5 items-center">
+                  <div className="space-x-3">
+                    {" "}
+                    {cashedList.map((item, i) => (
+                      <button
+                        key={i}
+                        className="  px-2 py-2 font-bold "
+                        onClick={() => setParam(item)}
+                      >
+                        {item}
+                      </button>
+                    ))}
+                  </div>
+                  <div>
+                    {isFetching ? <p> Background Fetching....</p> : null}
+                  </div>
                 </div>
               </div>
             ) : null}

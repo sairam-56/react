@@ -3,7 +3,13 @@ import { Link } from "react-router";
 
 function Header({ item }) {
   const [darkMode, setDarkMode] = useState(false);
-  const [pages, setPages] = useState(["tailwind", "ant", "saga", "query"]);
+  const [pages, setPages] = useState([
+    "tailwind",
+    "ant",
+    "saga",
+    "query",
+    "optimistic",
+  ]);
 
   useLayoutEffect(() => {
     const darkMode = localStorage.getItem("darkMode");
@@ -11,7 +17,7 @@ function Header({ item }) {
       setDarkMode(true);
     }
     if (item.item === "ant" || item.item === "custom") {
-      setPages(["tailwind", "ant", "custom", "saga", "query"]);
+      setPages(["tailwind", "ant", "custom", "saga", "query", "optimistic"]);
     }
   }, []);
 

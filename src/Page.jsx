@@ -6,6 +6,7 @@ import Query from "./Query.jsx";
 import CustomAntDesign from "./customAntDesign.jsx";
 import ReduxSaga from "./ReduxSaga.jsx";
 import NotFound from "./NotFound.jsx";
+import Optimistic from "./Optimistic.jsx";
 function Page() {
   return (
     <BrowserRouter>
@@ -15,6 +16,8 @@ function Page() {
         <Route path="/ant" element={<Ant />} />
         <Route path="/saga" element={<ReduxSaga />} />
         <Route path="/query" element={<Query />} />
+        <Route path="/optimistic" element={<Optimistic />} />
+
         <Route path="/ant/custom" element={<CustomAntDesign />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
